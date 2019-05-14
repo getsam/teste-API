@@ -1,2 +1,5 @@
 # teste-API
-Teste para estagio da Genux
+Teste para vaga de estágio - Empresa Genux
+
+Frontend: HTML5, CSS, Javascript (Jquery). 
+Backend: Python.
