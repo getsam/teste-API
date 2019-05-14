@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Genux</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+        <link rel="script" href="js/script.js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    </head>
+    <header id="topo">
+            <div>
+                <h1>Genux</h1>
+                <label for="Search"></label>
+                <input type="text" value="Search" id="SEARCH">
+            </div>
+
+
+
+    </header>
+
+    <body>
+    
+    <div id="meio">
+        <p>Preços</p>
+    </div>
+    <form id="tabela">
+        Selecione a Moeda
+        <select id="selectid" class="custom-select">
+            <option value="" selected> Selecione </option>
+            <option value="BTC"> BTC </option>
+            <option value="ETH"> ETH  </option>
+            <option value="DASH"> DASH </option>
+        </select><br/>
+        <table id="tb" class="table table-condensed">
+        <head>
+            <h1>Preços</h1>
+        </head>
+        </table>
+                
+        
+    </form>
+    </body>
+</html>
+<script>
+$(document).ready(function(){
+        
+        $("#selectid").on('change', function(){
+            
+            var selectVal = $("#selectid option:selected").val();
+            
+            $.ajax({
+                url: 'pegaeth?param='+selectVal,
+                dataType: 'text',
+                type: 'get',
+                success: function( data){
+                    
+                    var db = $('#tb');
+                    var tabela  = JSON.parse(data);
+
+                    db.html("");
+                    $.each(tabela[selectVal], function(index, value){
+                    
+                        
+                        console.log("entrou");
+                        db.append('<tr>');
+                        db.append('<td>' + index +" - "+value + '</td>');
+                        db.append('</tr>');
+                    
+                    });
+                }
+            });
+    
+    
+        });
+    
+                
+    });
+</script>

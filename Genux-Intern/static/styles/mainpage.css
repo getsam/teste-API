@@ -1,0 +1,30 @@
+header div h1{
+  border: 1px solid black;
+  margin: 30px 60px 20px 40px;
+  width: 130px;
+  text-align: center;
+  padding: 5px;
+}
+#SEARCH{
+margin: 0px 18px 8px 1149px;
+height: 15px;
+width: 137px;
+
+}
+#topo{
+border: 1px solid black;
+margin: 5px 5px 3px 5px;
+}
+
+#meio{
+border: 1px solid black;
+margin: 14px 7px -36px 6px;
+text-align: center;
+
+}
+#tabela{
+border: 1px solid black;
+text-align: center;
+margin: 50px 400px 50px 400px;
+padding: 20px;
+}
